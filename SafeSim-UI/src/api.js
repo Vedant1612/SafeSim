@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API = axios.create({ baseURL: 'http://127.0.0.1:5000' });
+const API = axios.create({ baseURL: 'https://safesim.onrender.com' });
 
 export const startSimulation = (type) => API.post('/simulate', { type });
 export const fetchLogs = () => API.get('/logs');
