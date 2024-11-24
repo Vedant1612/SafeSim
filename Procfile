@@ -1,1 +1,1 @@
-web: gunicorn safe_sim:app
+web: gunicorn app:app
