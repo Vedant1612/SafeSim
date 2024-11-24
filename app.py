@@ -1,6 +1,5 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-
 import utils  # Assuming your utility functions are defined in a module named `utils`
 
 app = Flask(__name__)
@@ -16,8 +15,11 @@ def home():
     return "SafeSim is running!"  # Optional: Replace with an HTML page or message
 
 # Simulation route (POST request)
-@app.route('/simulate', methods=['POST'])
+@app.route('/start-simulation', methods=['POST', 'OPTIONS'])
 def simulate():
+    if request.method == 'OPTIONS':
+        return '', 200  # Handle preflight requests (CORS)
+
     data = request.json
     simulation_type = data.get('type')
 
