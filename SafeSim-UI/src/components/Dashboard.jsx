@@ -10,7 +10,21 @@ const Dashboard = () => {
     setIsLoading(true);
 
     try {
-      const response = await axios.post(`https://safesim.onrender.com/start-simulation`, { simulationType });
+      // Adjust simulation type to match the backend's expected values
+      const validSimulationTypes = {
+        "File Operations": "file_operations",
+        "Ransomware": "ransomware",
+        "Network Traffic": "network_traffic",
+      };
+
+      // Map the user-friendly names to the valid backend simulation types
+      const backendSimulationType = validSimulationTypes[simulationType];
+
+      if (!backendSimulationType) {
+        throw new Error("Invalid simulation type.");
+      }
+
+      const response = await axios.post(`https://safesim.onrender.com/start-simulation`, { simulationType: backendSimulationType });
       alert(`${simulationType} simulation started successfully!`);
       console.log(response.data); // Handle response as needed
     } catch (error) {
