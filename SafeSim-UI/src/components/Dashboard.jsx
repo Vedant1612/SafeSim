@@ -10,7 +10,7 @@ const Dashboard = () => {
     setIsLoading(true);
 
     try {
-      const response = await axios.post(`http://localhost:5000/start-simulation`, { simulationType });
+      const response = await axios.post(`https://safesim.onrender.com/start-simulation`, { simulationType });
       alert(`${simulationType} simulation started successfully!`);
       console.log(response.data); // Handle response as needed
     } catch (error) {
