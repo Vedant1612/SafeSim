@@ -48,7 +48,7 @@ const Configurations = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/configurations", config);
+      const response = await axios.post("https://safesim.onrender.com/configurations", config);
       alert("Configurations saved successfully!");
       console.log(response.data);
     } catch (error) {
