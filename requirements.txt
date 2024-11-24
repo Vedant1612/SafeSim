@@ -3,3 +3,4 @@ cryptography
 pillow
 flask
 gunicorn
+flask_cors
